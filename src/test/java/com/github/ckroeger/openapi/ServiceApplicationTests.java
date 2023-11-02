@@ -1,4 +1,4 @@
-package com.github.service;
+package com.github.ckroeger.openapi;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
