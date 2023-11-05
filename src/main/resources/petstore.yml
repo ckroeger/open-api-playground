@@ -7,6 +7,19 @@ info:
 servers:
   - url: http://localhost:8080/
 paths:
+  /dogs:
+    get:
+      summary: get a dog
+      operationId: getDog
+      tags:
+        - dog
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dog"
   /pets:
     get:
       summary: List all pets
@@ -62,9 +75,8 @@ paths:
         content:
           application/json:
             schema:
-              oneOf:
-                - $ref: '#/components/schemas/Cat'
-                - $ref: '#/components/schemas/Dog'
+              $ref: "#/components/schemas/MixedData"
+
       responses:
         '200':
           description: Updated
@@ -125,6 +137,8 @@ components:
         message:
           type: string
     Dog:
+      required:
+        - refType
       type: object
       properties:
         bark:
@@ -132,10 +146,30 @@ components:
         breed:
           type: string
           enum: [ Dingo, Husky, Retriever, Shepherd ]
+        refType:
+          type: string
     Cat:
+      required:
+        - refType
       type: object
       properties:
         hunts:
           type: boolean
         age:
           type: integer
+        refType:
+          type: string
+    MixedData:
+      type: object
+      required:
+        - animal
+      properties:
+        animal:
+          type: object
+          oneOf:
+            - $ref: '#/components/schemas/Cat'
+            - $ref: '#/components/schemas/Dog'
+          discriminator:
+            propertyName: refType
+        name:
+          type: string
