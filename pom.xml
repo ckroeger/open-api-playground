@@ -97,6 +97,12 @@
             <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -163,11 +169,25 @@
                         <configuration>
                             <inputSpec>${project.basedir}/src/main/resources/petstore.yml</inputSpec>
                             <generatorName>spring</generatorName>
+                            <library>spring-boot</library>
+
                             <apiPackage>com.github.ckroeger.openapi.api</apiPackage>
                             <modelPackage>com.github.ckroeger.openapi.model</modelPackage>
+
+                            <generateApiTests>true</generateApiTests>
+                            <generateAliasAsModel>true</generateAliasAsModel>
                             <configOptions>
                                 <delegatePattern>true</delegatePattern>
-                                <useSpringBoot3>true</useSpringBoot3>
+                                <useSpringBoot3>false</useSpringBoot3>
+                                <interfaceOnly>true</interfaceOnly>
+                                <booleanGetterPrefix>is</booleanGetterPrefix>
+                                <useBeanValidation>true</useBeanValidation>
+                                <performBeanValidation>true</performBeanValidation>
+                                <useGzipFeature>true</useGzipFeature>
+                                <useTags>true</useTags>
+                                <useSpringController>true</useSpringController>
+                                <hideGenerationTimestamp>true</hideGenerationTimestamp>
+                                <useSwaggerUI>true</useSwaggerUI>
                             </configOptions>
                         </configuration>
                     </execution>
