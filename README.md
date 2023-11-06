@@ -1,12 +1,22 @@
 # open-api-playground
 
 Playground for open-api.
+![openapi-logo](docs/openapi-logo.png)
+
+This example uses [petstore.yml](src/main/resources/petstore.yml) to generate stubs for model-classes and controller.
+It contains a solution for ``onOf`` usage.
+
+run command to generate code
+````shell
+mvn clean install
+````
+
+# onOf example
+![oneOf_with_discriminator.png](oneOf_with_discriminator.png)
 
 ## Links
-
 * [Swagger UI](http://localhost:8080/swagger-ui/index.html#/pets/patchPet)
 
-![openapi-logo](docs/openapi-logo.png)
 ## Sources
 
 * Generator
