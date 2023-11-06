@@ -23,8 +23,10 @@ Playground for open-api.
   * [OpenAPI 3 Library for spring-boot](https://springdoc.org/)
 
 
-## Request-Payloads for patch 
+## Request-Payloads for patch
 
+### Cat
+json-payload for a cat:
 ````json
 {
   "animal": {
@@ -35,6 +37,25 @@ Playground for open-api.
   "name": "Jerry"
 }
 ````
+curl command for a cat:
+````shell
+curl -X 'PATCH' \
+  'http://localhost:8080/pets' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "animal": {
+    "refType": "Cat",
+    "hunts": true,
+    "age": 2
+  },
+  "name": "Jerry"
+}'
+````
+
+### Dog
+
+json-payload for a dog:
 ````json
 {
   "animal": {
@@ -44,4 +65,19 @@ Playground for open-api.
   },
   "name": "Hasso"
 }
+````
+curl command for a dog:
+````shell
+curl -X 'PATCH' \
+  'http://localhost:8080/pets' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "animal": {
+    "bark": true,
+    "breed": "Dingo",
+    "refType": "Dog"
+  },
+  "name": "Hasso"
+}'
 ````
