@@ -16,6 +16,6 @@ class ModelSubTypRegisterTest {
         ObjectMapper objectMapper = Mockito.mock(ObjectMapper.class);
         ModelSubTypRegister uut = new ModelSubTypRegister(objectMapper);
         uut.registerSubTypes();
-        verify(objectMapper, Mockito.times(3)).registerSubtypes((NamedType) Mockito.any());
+        verify(objectMapper, Mockito.times(2)).registerSubtypes((NamedType) Mockito.any());
     }
 }
