@@ -5,9 +5,11 @@ import com.github.ckroeger.openapi.model.MixedData;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
+@CrossOrigin(origins = "*")
 @RestController()
 public class PetsController implements PetsApi {
 
