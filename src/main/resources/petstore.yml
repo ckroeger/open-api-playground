@@ -148,6 +148,8 @@ components:
           enum: [ Dingo, Husky, Retriever, Shepherd ]
         refType:
           type: string
+          description: Use Dog
+          default: Dog
     Cat:
       required:
         - refType
@@ -159,6 +161,8 @@ components:
           type: integer
         refType:
           type: string
+          description: Use Cat
+          default: Cat
     MixedData:
       type: object
       required:
