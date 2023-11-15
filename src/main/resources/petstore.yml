@@ -76,7 +76,21 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/MixedData"
-
+            examples:
+              cat:
+                value:
+                  animal:
+                    refType: "Cat"
+                    hunts: true
+                    age: 2
+                  name: "Jerry"
+              dog:
+                value:
+                  animal:
+                    refType: "Dog"
+                    bark: true
+                    breed: "Dingo"
+                  name: "Hasso"
       responses:
         '200':
           description: Updated
